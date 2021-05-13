@@ -1,0 +1,7 @@
+ 
+export const roleSystem = {
+  ROLE_ADMIN: "ROLE_ADMIN",
+  ROLE_USER: "ROLE_USER",
+  ROLE_ATTENDEE: "ROLE_ATTENDEE",
+  ROLE_PANELIST: "ROLE_PANELIST"
+};
