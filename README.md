@@ -2,4 +2,8 @@
  For trainning
 # Git command
 git clone
+git pull
 git commit -m "message"
+git push
+git rm -r --cached <ten_file_hoac_folder> :Xóa các file không cần thiết khỏi git manager
+
