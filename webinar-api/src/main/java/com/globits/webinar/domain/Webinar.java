@@ -38,9 +38,11 @@ public class Webinar extends BaseObject {
     @Column(name = "description")
     private String description;
 
+    @OneToMany(mappedBy = "webinar", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    private Set<UserWebinar> userWebinars = new LinkedHashSet<UserWebinar>();
+
     @Column(name = "meeting_Id")
     private String meetingId;
-
     @Column(name = "meeting_passw")
     private String meetingPassw;
 
@@ -102,6 +104,14 @@ public class Webinar extends BaseObject {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Set<UserWebinar> getUserWebinars() {
+        return userWebinars;
+    }
+
+    public void setUserWebinars(Set<UserWebinar> userWebinars) {
+        this.userWebinars = userWebinars;
     }
 
     public String getImageUrl() {
