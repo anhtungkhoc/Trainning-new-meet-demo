@@ -13,6 +13,15 @@ public class SearchDto {
 	private Date type;
 	private int pageIndex;
 	private int pageSize;
+	private String keyword;
+	
+	
+	public String getKeyword() {
+		return keyword;
+	}
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
 	public Long getId() {
 		return id;
 	}

@@ -35,7 +35,7 @@ public class Category extends BaseObject {
 	private String name;
 	
 	@Column(name="code")
-	private String Code;
+	private String code;
 
 	public String getName() {
 		return name;
@@ -46,11 +46,12 @@ public class Category extends BaseObject {
 	}
 
 	public String getCode() {
-		return Code;
+		return code;
 	}
 
 	public void setCode(String code) {
-		Code = code;
+		this.code = code;
 	}
 
+	
 }
