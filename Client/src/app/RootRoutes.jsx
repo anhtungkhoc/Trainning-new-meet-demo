@@ -9,6 +9,8 @@ import ConstantList from "./appConfig";
 import MenuRoutes from "./views/Menus/MenuRoutes";
 import pageLayoutRoutes from "./views/page-layouts/PageLayoutRoutees";
 import webinarRoutes from "./views/Webinar/WebinarRoutes";
+import WebinarCategoryRoutes from "./views/WebinarCategory/WebinarCategoryRoutes";
+import CategoryRoutes from "./views/Category/CategoryRoutes";
 import RegistrationConfirmationRoutes from './views/RegistrationConfirmation/RegistrationConfirmationRoutes'
 
 const redirectRoute = [
@@ -35,6 +37,8 @@ const routes = [
   ...roleRoutes,
   ...MenuRoutes,
   ...webinarRoutes,
+  ...WebinarCategoryRoutes,
+  ...CategoryRoutes,
   ...RegistrationConfirmationRoutes,
   ...errorRoute
 ];
