@@ -4,3 +4,4 @@ Client/package-lock.json
 .idea/
 .setttings/
 *.iml
+*.classpath
