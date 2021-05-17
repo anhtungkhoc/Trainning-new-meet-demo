@@ -7,6 +7,7 @@ import UserRoutes from "./views/User/UserRoutes";
 import roleRoutes from "./views/Role/RoleRoutes";
 import ConstantList from "./appConfig";
 import MenuRoutes from "./views/Menus/MenuRoutes";
+import WebinarCommentRoutes from "./views/WebinarComment/WebinarCommentRoutes";
 import pageLayoutRoutes from "./views/page-layouts/PageLayoutRoutees";
 import webinarRoutes from "./views/Webinar/WebinarRoutes";
 import WebinarCategoryRoutes from "./views/WebinarCategory/WebinarCategoryRoutes";
@@ -36,6 +37,7 @@ const routes = [
   ...UserRoutes,
   ...roleRoutes,
   ...MenuRoutes,
+  ...WebinarCommentRoutes,
   ...webinarRoutes,
   ...WebinarCategoryRoutes,
   ...CategoryRoutes,
