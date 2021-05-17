@@ -40,6 +40,12 @@ export const navigations = [
         isVisible:true,
         path: ConstantList.ROOT_PATH + "list/menu",
         icon: "keyboard_arrow_right"
+      },
+      {
+        name: "manage.webinar_comment",
+        isVisible:true,
+        path: ConstantList.ROOT_PATH + "webinar_comment_manager/webinar_comment",
+        icon: "keyboard_arrow_right"
       }
     ]
   },

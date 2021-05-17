@@ -787,6 +787,7 @@
     "profile_is_logged": "Quản lý Profile đang đăng nhập",
     "user": "Quản lý người dùng",
     "menu": "Quản lý Menu",
+    "webinar_comment": "Quản lý WebinarComment",
     "isMainDepartment": "Chọn phòng ban chính",
     "department": "Phòng ban",
     "departmentList": "Danh sách phòng ban"
@@ -1028,6 +1029,18 @@
     "key":"Tên menu",
     "path":"Đường dẫn",
     "parent": "Menu cha"
+  },
+  "webinar_comment": {
+    "title": "Quản lý WebinarComment",
+    "webinar": "Hội thảo",
+    "comment": "Bình luận",
+    "noti": {
+      "addSuccess": "Tạo mới thành công bình luận",
+      "addFail": "Có lỗi xảy ra khi thêm mới bình luận",
+      "updateFail": "Có lỗi xảy ra khi chỉnh sửa thông tin bình luận",
+      "updateSuccess": "Cập nhật thành công thông tin bình luận",
+      "deleteSuccess": "Xoá thành công bình luận"
+    }
   },
   "asset_liquidate":{
     "dialog":"Thêm mới/Cập nhật phiếu thanh lý",
