@@ -10,6 +10,8 @@ import MenuRoutes from "./views/Menus/MenuRoutes";
 import WebinarCommentRoutes from "./views/WebinarComment/WebinarCommentRoutes";
 import pageLayoutRoutes from "./views/page-layouts/PageLayoutRoutees";
 import webinarRoutes from "./views/Webinar/WebinarRoutes";
+import WebinarCategoryRoutes from "./views/WebinarCategory/WebinarCategoryRoutes";
+import CategoryRoutes from "./views/Category/CategoryRoutes";
 import RegistrationConfirmationRoutes from './views/RegistrationConfirmation/RegistrationConfirmationRoutes'
 
 const redirectRoute = [
@@ -37,6 +39,8 @@ const routes = [
   ...MenuRoutes,
   ...WebinarCommentRoutes,
   ...webinarRoutes,
+  ...WebinarCategoryRoutes,
+  ...CategoryRoutes,
   ...RegistrationConfirmationRoutes,
   ...errorRoute
 ];

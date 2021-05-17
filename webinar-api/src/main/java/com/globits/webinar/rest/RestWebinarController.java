@@ -86,10 +86,11 @@ public class RestWebinarController {
         }
 
     }
+	@RequestMapping(value = "/checkCode", method = RequestMethod.GET)
+	public ResponseEntity<Boolean> checkCode(@RequestParam(value = "id", required = false) UUID id,
+			@RequestParam("code") String code) {
+		Boolean result = service.checkCode(code, id);
+		return new ResponseEntity<Boolean>(result, (result != null) ? HttpStatus.OK : HttpStatus.BAD_REQUEST);
+	}
 
-    @RequestMapping(value = "/checkCode", method = RequestMethod.GET)
-    public ResponseEntity<Boolean> checkCode(@RequestParam(value = "id", required = false) UUID id, @RequestParam("code") String code) {
-        Boolean result = service.checkCode(code, id);
-        return new ResponseEntity<Boolean>(result, (result != null) ? HttpStatus.OK : HttpStatus.BAD_REQUEST);
-    }
 }

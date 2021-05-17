@@ -4,3 +4,7 @@ Client/package-lock.json
 .idea/
 .setttings/
 *.iml
+webinar-api/target/
+webinar-app/
+*.classpath
+*.project

@@ -10,34 +10,34 @@ export const navigations = [
     name: "webinar.list",
     icon: "dashboard",
     path: ConstantList.ROOT_PATH + "webinar",
-    isVisible:true,
+    isVisible: true,
   },
   {
     name: "webinar.myList",
     icon: "dashboard",
     path: ConstantList.ROOT_PATH + "my-webinar",
-    isVisible:true,
+    isVisible: true,
   },
   {
     name: "Zoom Meeting",
     icon: "dashboard",
     path: ConstantList.ROOT_PATH + "zoom-meeting",
-    isVisible:true,
+    isVisible: true,
   },
   {
     name: "Dashboard.manage",
-    isVisible:true,
+    isVisible: true,
     icon: "engineering",
     children: [
       {
         name: "manage.user",
-        isVisible:true,
+        isVisible: true,
         path: ConstantList.ROOT_PATH + "user_manager/user",
         icon: "keyboard_arrow_right"
       },
       {
         name: "manage.menu",
-        isVisible:true,
+        isVisible: true,
         path: ConstantList.ROOT_PATH + "list/menu",
         icon: "keyboard_arrow_right"
       },
@@ -45,7 +45,23 @@ export const navigations = [
         name: "manage.webinar_comment",
         isVisible:true,
         path: ConstantList.ROOT_PATH + "webinar_comment_manager/webinar_comment",
-        icon: "keyboard_arrow_right"
+        icon: "keyboard_arrow_right",
+        name: "manage.categories",
+        isVisible: true,
+        children: [
+          {
+            name: "Danh mục",
+            isVisible: true,
+            path: ConstantList.ROOT_PATH + "list/category",
+            icon: "keyboard_arrow_right"
+          },
+          {
+            name: "Webinar Category",
+            isVisible: true,
+            path: ConstantList.ROOT_PATH + "list/webinarCategory",
+            icon: "keyboard_arrow_right"
+          }
+        ]
       }
     ]
   },
@@ -53,6 +69,6 @@ export const navigations = [
     name: "TEST",
     icon: "dashboard",
     path: ConstantList.ROOT_PATH + "Detail",
-    isVisible:true,
+    isVisible: true,
   },
 ];

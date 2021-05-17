@@ -145,7 +145,10 @@
     "confirmCalculator": "Bạn có chắc chắn muốn lưu?",
     "add_file":"Thêm tài liệu",
     "allProduct": "Tất cả sản phẩm",
-    "invalidDateFormat": "Định dạng ngày tháng không hợp lệ"
+    "invalidDateFormat": "Định dạng ngày tháng không hợp lệ",
+    "dupli_code":"Mã bị trùng, vui lòng nhập mã khác",
+    "updateSuccess":"Cập nhật thành công",
+    "addSuccess":"Thêm mới thành công"
   },
   "toastr": {
     "error": "Có lỗi xảy ra, vui lòng thử lại."
@@ -790,7 +793,8 @@
     "webinar_comment": "Quản lý WebinarComment",
     "isMainDepartment": "Chọn phòng ban chính",
     "department": "Phòng ban",
-    "departmentList": "Danh sách phòng ban"
+    "departmentList": "Danh sách phòng ban",
+    "categories": "Quản lý danh mục"
   },
   "InventoryCountVoucher": {
     "title": "Kiểm kê tài sản",
@@ -1040,7 +1044,10 @@
       "updateFail": "Có lỗi xảy ra khi chỉnh sửa thông tin bình luận",
       "updateSuccess": "Cập nhật thành công thông tin bình luận",
       "deleteSuccess": "Xoá thành công bình luận"
-    }
+    },
+  "webinarCategory": {
+    "category":"Danh mục",
+    "webinar": "Hội thảo"
   },
   "asset_liquidate":{
     "dialog":"Thêm mới/Cập nhật phiếu thanh lý",
