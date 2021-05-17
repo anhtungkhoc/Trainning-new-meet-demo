@@ -45,7 +45,9 @@ export const navigations = [
         name: "manage.webinar_comment",
         isVisible:true,
         path: ConstantList.ROOT_PATH + "webinar_comment_manager/webinar_comment",
-        icon: "keyboard_arrow_right",
+        icon: "keyboard_arrow_right"
+      },
+      {
         name: "manage.categories",
         isVisible: true,
         children: [
