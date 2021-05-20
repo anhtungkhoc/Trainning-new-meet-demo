@@ -43,11 +43,15 @@ public class Webinar extends BaseObject {
 
     @Column(name = "meeting_Id")
     private String meetingId;
+
     @Column(name = "meeting_passw")
     private String meetingPassw;
 
     @Column(name = "image_url")
     private String imageUrl;
+
+    @Column(name = "number_of_likes")
+    private Integer numberOfLikes;
 
     public String getMeetingId() {
         return meetingId;
@@ -80,7 +84,6 @@ public class Webinar extends BaseObject {
     public void setCode(String code) {
         this.code = code;
     }
-
 
     public Date getStartTime() {
         return startTime;
@@ -122,4 +125,11 @@ public class Webinar extends BaseObject {
         this.imageUrl = imageUrl;
     }
 
+    public Integer getNumberOfLikes() {
+        return numberOfLikes;
+    }
+
+    public void setNumberOfLikes(Integer numberOfLikes) {
+        this.numberOfLikes = numberOfLikes;
+    }
 }
