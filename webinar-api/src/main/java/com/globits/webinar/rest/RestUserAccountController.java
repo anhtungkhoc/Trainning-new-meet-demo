@@ -14,7 +14,7 @@ import com.globits.webinar.service.UserAccountService;
 @RestController
 @RequestMapping("/api/userAccount")
 public class RestUserAccountController {
-	
+
 	@Autowired
 	UserAccountService service;
 	

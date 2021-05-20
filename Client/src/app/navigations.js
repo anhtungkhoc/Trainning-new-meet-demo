@@ -15,7 +15,7 @@ export const navigations = [
   {
     name: "webinar.myList",
     icon: "dashboard",
-    path: ConstantList.ROOT_PATH + "my-webinar",
+    path: ConstantList.ROOT_PATH + "myWebinar",
     isVisible:true,
   },
   {

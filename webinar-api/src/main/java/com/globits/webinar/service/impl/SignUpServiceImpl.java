@@ -86,7 +86,7 @@ public class SignUpServiceImpl implements SignUpService {
 			if (role != null) {
 				roles = new HashSet<>();
 				roles.add(role);
-				user.setRoles(roles);
+//				user.setRoles(roles);
 			}
 			user = userRepository.save(user);
 			personService.save(person);

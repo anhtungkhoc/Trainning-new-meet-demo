@@ -25,129 +25,145 @@ import java.util.UUID;
 @Component
 public class WebinarServiceImpl extends GenericServiceImpl<Webinar, UUID> implements WebinarService {
 
-    @Autowired
-    private EntityManager manager;
+  @Autowired
+  private EntityManager manager;
 
-    @Autowired
-    public WebinarRepository webinarRepository;
+  @Autowired
+  public WebinarRepository webinarRepository;
 
-    @Autowired
-    UserService userService;
+  @Autowired
+  UserService userService;
 
-    @Override
-    public Page<WebinarDto> searchByDto(SearchDto searchDto) {
-        if (searchDto == null) {
-            return null;
-        }
-        int pageIndex = searchDto.getPageIndex();
-        int pageSize = searchDto.getPageSize();
+  @Override
+  public Page<WebinarDto> searchByDto(SearchDto searchDto) {
+    if (searchDto == null) {
+      return null;
+    }
+    int pageIndex = searchDto.getPageIndex();
+    int pageSize = searchDto.getPageSize();
 
-        if (pageIndex > 0) {
-            pageIndex--;
-        } else {
-            pageIndex = 0;
-        }
-
-        String whereClause = "";
-        String orderBy = "ORDER BY startTime desc ";
-        String sqlCount = "select count(wbn.id) from Webinar as wbn where (1=1) ";
-        String sql = "select new com.globits.webinar.dto.WebinarDto(wbn) from Webinar as wbn where (1=1) ";
-
-        if (searchDto.getText() != null && StringUtils.hasText(searchDto.getText())) {
-            whereClause += " AND (wbn.name LIKE :text " + "OR wbn.code LIKE :text )";
-        }
-
-        sql += whereClause + orderBy;
-        sqlCount += whereClause;
-        Query q = manager.createQuery(sql, WebinarDto.class);
-        Query qCount = manager.createQuery(sqlCount);
-
-        if (searchDto.getText() != null && StringUtils.hasText(searchDto.getText())) {
-            q.setParameter("text", '%' + searchDto.getText().trim() + '%');
-            qCount.setParameter("text", '%' + searchDto.getText().trim() + '%');
-        }
-
-        int startPosition = pageIndex * pageSize;
-        q.setFirstResult(startPosition);
-        q.setMaxResults(pageSize);
-        List<WebinarDto> entities = q.getResultList();
-        long count = (long) qCount.getSingleResult();
-
-        Pageable pageable = PageRequest.of(pageIndex, pageSize);
-        Page<WebinarDto> result = new PageImpl<WebinarDto>(entities, pageable, count);
-
-        return result;
+    if (pageIndex > 0) {
+      pageIndex--;
+    } else {
+      pageIndex = 0;
     }
 
-    @Override
-    public WebinarDto saveOrUpdate(WebinarDto dto, UUID id) {
-        if (dto != null) {
-            Webinar entity = null;
-            if (id != null) {
-                entity = webinarRepository.getOne(id);
+    String whereClause = "";
+    String orderBy = "ORDER BY startTime desc ";
+    String sqlCount = "select count(wbn.id) from Webinar as wbn where (1=1) ";
+    String sql = "select new com.globits.webinar.dto.WebinarDto(wbn) from Webinar as wbn where (1=1) ";
 
-                entity.setName(dto.getName());
-                entity.setCode(dto.getCode());
-                entity.setStartTime(dto.getStartTime());
-                entity.setEndTime(dto.getEndTime());
-                entity.setDescription(dto.getDescription());
-                entity.setMeetingId(dto.getMeetingId());
-                entity.setMeetingPassw(dto.getMeetingPassw());
-                entity.setImageUrl(dto.getImageUrl());
-                entity = webinarRepository.save(entity);
-
-            }
-            if (entity == null) {
-                entity = new Webinar();
-
-                entity.setName(dto.getName());
-                entity.setCode(dto.getCode());
-                entity.setStartTime(dto.getStartTime());
-                entity.setEndTime(dto.getEndTime());
-                entity.setDescription(dto.getDescription());
-                entity.setMeetingId(dto.getMeetingId());
-                entity.setMeetingPassw(dto.getMeetingPassw());
-                entity.setImageUrl(dto.getImageUrl());
-                entity = webinarRepository.save(entity);
-            }
-
-            if (entity != null) {
-                return new WebinarDto(entity);
-            }
-        }
-        return null;
-
+    if (searchDto.getText() != null && StringUtils.hasText(searchDto.getText())) {
+      whereClause += " AND (wbn.name LIKE :text " + "OR wbn.code LIKE :text )";
     }
 
-    @Override
-    public WebinarDto getById(UUID id) {
-        if (id != null) {
-            Webinar entity = webinarRepository.getOne(id);
-            if (entity != null) {
-                return new WebinarDto(entity);
-            }
-        }
-        return null;
+    sql += whereClause + orderBy;
+    sqlCount += whereClause;
+    Query q = manager.createQuery(sql, WebinarDto.class);
+    Query qCount = manager.createQuery(sqlCount);
+
+    if (searchDto.getText() != null && StringUtils.hasText(searchDto.getText())) {
+      q.setParameter("text", '%' + searchDto.getText().trim() + '%');
+      qCount.setParameter("text", '%' + searchDto.getText().trim() + '%');
     }
 
-    @Override
-    public Boolean deleteById(UUID id) {
-        if (id != null) {
-            Webinar entity = webinarRepository.getOne(id);
-            if (entity != null) {
-                webinarRepository.deleteById(id);
-                return true;
-            }
-        }
-        return false;
-    }
+    int startPosition = pageIndex * pageSize;
+    q.setFirstResult(startPosition);
+    q.setMaxResults(pageSize);
+    List<WebinarDto> entities = q.getResultList();
+    long count = (long) qCount.getSingleResult();
 
-    @Override
-    public Boolean checkCode(String code, UUID id) {
-        if (code != null && StringUtils.hasText(code)) {
-            Long count = webinarRepository.checkCode(code, id);
-            return count != 0l;
-        }
-        return null;
+    Pageable pageable = PageRequest.of(pageIndex, pageSize);
+    Page<WebinarDto> result = new PageImpl<WebinarDto>(entities, pageable, count);
+
+    return result;
+  }
+
+  @Override
+  public WebinarDto saveOrUpdate(WebinarDto dto, UUID id) {
+    if (dto != null) {
+      Webinar entity = null;
+      if (id != null) {
+        entity = webinarRepository.getOne(id);
+
+        entity.setName(dto.getName());
+        entity.setCode(dto.getCode());
+        entity.setStartTime(dto.getStartTime());
+        entity.setEndTime(dto.getEndTime());
+        entity.setDescription(dto.getDescription());
+        entity.setMeetingId(dto.getMeetingId());
+        entity.setMeetingPassw(dto.getMeetingPassw());
+        entity.setImageUrl(dto.getImageUrl());
+        entity = webinarRepository.save(entity);
+
+      }
+      if (entity == null) {
+        entity = new Webinar();
+
+        entity.setName(dto.getName());
+        entity.setCode(dto.getCode());
+        entity.setStartTime(dto.getStartTime());
+        entity.setEndTime(dto.getEndTime());
+        entity.setDescription(dto.getDescription());
+        entity.setMeetingId(dto.getMeetingId());
+        entity.setMeetingPassw(dto.getMeetingPassw());
+        entity.setImageUrl(dto.getImageUrl());
+        entity = webinarRepository.save(entity);
+      }
+
+      if (entity != null) {
+        return new WebinarDto(entity);
+      }
     }
+    return null;
+
+  }
+
+  @Override
+  public WebinarDto getById(UUID id) {
+    if (id != null) {
+      Webinar entity = webinarRepository.getOne(id);
+      if (entity != null) {
+        return new WebinarDto(entity);
+      }
+    }
+    return null;
+  }
+
+  @Override
+  public WebinarDto getWebinarByCode(String code) {
+    if (code == null) return null;
+      Webinar entity = webinarRepository.getWebinarByCode(code);
+      if (entity != null) {
+        return new WebinarDto(entity);
+      }
+    return null;
+  }
+
+  @Override
+  public Boolean deleteById(UUID id) {
+    if (id != null) {
+      Webinar entity = webinarRepository.getOne(id);
+      if (entity != null) {
+        webinarRepository.deleteById(id);
+        return true;
+      }
+    }
+    return false;
+  }
+
+  @Override
+  public Boolean checkCode(String code, UUID id) {
+    if (code != null && StringUtils.hasText(code)) {
+      Long count = webinarRepository.checkCode(code, id);
+      return count != 0l;
+    }
+    return null;
+  }
+
+  @Override
+  public List<WebinarDto> findAll() {
+    return webinarRepository.getAllWebinar();
+  }
+
 }

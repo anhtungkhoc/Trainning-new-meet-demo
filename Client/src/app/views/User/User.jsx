@@ -98,6 +98,7 @@ class User extends Component {
       searchByPage(searchObject.pageIndex, searchObject.pageSize).then(({ data }) => {
         this.setState({ itemList: [...data.content], totalElements: data.totalElements })
       });
+      
     }
   };
 

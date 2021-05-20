@@ -10,6 +10,7 @@ import MenuRoutes from "./views/Menus/MenuRoutes";
 import pageLayoutRoutes from "./views/page-layouts/PageLayoutRoutees";
 import webinarRoutes from "./views/Webinar/WebinarRoutes";
 import RegistrationConfirmationRoutes from './views/RegistrationConfirmation/RegistrationConfirmationRoutes'
+import myWebinar from "./views/MyWebinar/MyWebinarRoutes";
 
 const redirectRoute = [
   {
@@ -35,8 +36,10 @@ const routes = [
   ...roleRoutes,
   ...MenuRoutes,
   ...webinarRoutes,
+  ...myWebinar,
   ...RegistrationConfirmationRoutes,
-  ...errorRoute
+  ...errorRoute,
+  
 ];
 
 export default routes;

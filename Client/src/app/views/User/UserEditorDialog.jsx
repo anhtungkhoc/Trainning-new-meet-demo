@@ -150,11 +150,6 @@ class UserEditorDialog extends Component {
       return true;
     });
 
-    getAllRoles().then(({ data }) => {
-      this.setState({
-        listRole: data
-      });
-    });
   }
 
   render() {
