@@ -90,7 +90,7 @@ class EgretLayout extends Component {
     const { settings } = this.props;
     const Layout = EgretLayouts[settings.activeLayout];
 
-    return <Layout {...this.props} />;
+    return <Layout {...this.props}/>;
   }
 }
 

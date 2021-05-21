@@ -9,6 +9,8 @@ import Testimonial3 from "./sections/Testimonial3";
 import Intro3 from "./sections/Intro3";
 import FooterCarourel from "./sections/FooterCarourel";
 import TopBar3 from "./sections/TopBar3";
+import Header3 from "./sections/Header3";
+import Contact from "./sections/Contact";
 import CallToAction2 from "./sections/CallToAction2";
 import Pricing1 from "./sections/Pricing1";
 import Footer1 from "./sections/Footer1";
@@ -25,10 +27,12 @@ class Landing3 extends Component {
     const { t, i18n } = this.props;
     return (
       <div className="landing">
-        <TopBar3 t={t} i18n={i18n} />
+        <TopBar3 t={t} i18n={i18n}/>
         <Intro3 t={t} i18n={i18n} />
         <FooterCarourel t={t} i18n={i18n} />
         {/* <ShowListZoom t={t} i18n={i18n} /> */}
+        <Header3></Header3>
+        <Contact></Contact>
       </div>
     );
   }

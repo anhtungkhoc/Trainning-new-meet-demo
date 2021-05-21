@@ -1,6 +1,7 @@
 $spaces: (
   0: 0px,
   4: 4px,
+  6: 6px,
   8: 8px,
   10: 10px,
   12: 12px,
@@ -13,7 +14,8 @@ $spaces: (
   36: 36px,
   40: 40px,
   44: 44px,
-  48: 48px
+  48: 48px,
+  60: 60px
 );
 
 @each $name, $value in $spaces {
@@ -139,7 +141,10 @@ $spaces: (
     padding: 12px !important;
   }
 }
-
+.mr-0{
+  margin: auto !important;
+  margin-right: 20px !important;
+}
 .m-auto {
   margin: auto !important;
 }

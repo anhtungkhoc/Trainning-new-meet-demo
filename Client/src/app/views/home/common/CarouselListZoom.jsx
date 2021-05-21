@@ -177,12 +177,12 @@ class CarouselListZoom extends Component {
         </div>
         {/* <!-- Add Pagination --> */}
         {/* navigation */}
-        {/* <Fab className="carousel__button-prev carousel__button-prev2 bg-white">
+        <Fab className="carousel__button-prev carousel__button-prev2 bg-white">
           <NavigateBefore />
         </Fab>
         <Fab className="carousel__button-next carousel__button-next2 bg-white">
           <NavigateNext />
-        </Fab> */}
+        </Fab>
       </div>
     )
   }
