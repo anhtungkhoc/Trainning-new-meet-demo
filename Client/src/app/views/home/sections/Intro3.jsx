@@ -21,12 +21,13 @@ class Intro3 extends Component {
   };
   render() {
     const { t, i18n } = this.props;
+    const background = { backgroundColor: 'black' }
     
     let {
       currentEQARound
     } = this.state;
     return (
-      <section className="section section-intro1 section-intro3" id="intro3">
+      <section className="section section-intro1 section-intro3" id="intro3" style={background}>
         <div className="container">
           <Grid container spacing={1} justify="center">
             <Grid item xs={12} sm={12} md={12} lg={12} >
