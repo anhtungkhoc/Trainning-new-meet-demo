@@ -45,6 +45,13 @@ public class RestSignUpController {
 		
 		return resUser;		
 	}
+	@RequestMapping(value = "/registerfb", method = RequestMethod.POST)
+	public ResponseEntity<UserDto> createUserFb(@RequestBody SignUpDto dto){
+		UserDto userDto = signUpservice.createUserFb(dto);
+		ResponseEntity<UserDto> resUser = new ResponseEntity<>(userDto,
+				userDto != null ? HttpStatus.OK : HttpStatus.BAD_REQUEST);
+		return resUser;		
+	}
 	
 	@RequestMapping(value = "/confirmRegistration", method = RequestMethod.GET)
 	public ResponseEntity<Integer> confirmRegistration(@RequestParam("token") String token) {
