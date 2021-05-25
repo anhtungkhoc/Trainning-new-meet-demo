@@ -133,13 +133,13 @@ class Webinar extends Component {
       this.handleDialogClose();
     });
   };
-
-  componentWillMount() {
-    this.setState({
-      role: localStorageService.getLoginUser().roles
-    })
-    this.updatePageData();
-  }
+//just for test
+  // componentWillMount() {
+  //   this.setState({
+  //     role: localStorageService.getLoginUser().roles
+  //   })
+  //   this.updatePageData();
+  // }
 
   componentDidMount() {
     const nowUser = localStorageService.getLoginUser();

@@ -15,8 +15,11 @@ import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
 import { withRouter } from "react-router-dom";
 import { Helmet } from 'react-helmet';
-import { loginWithEmailAndPassword } from "../../redux/actions/LoginActions";
-
+import { setUserData } from "../../redux/actions/UserActions";
+import { loginWithEmailAndPassword,firebaseLoginEmailPassword } from "../../redux/actions/LoginActions";
+import FirebaseAuthService from "../../services/firebase/firebaseAuthService";
+import history from "history.js";
+import { signUpAccountFb, checkEmail } from "./SessionService";
 const styles = theme => ({
   wrapper: {
     position: "relative"
@@ -35,7 +38,8 @@ class SignIn extends Component {
   state = {
     email: "",
     password: "",
-    agreement: ""
+    agreement: "",
+    user: null
   };
   handleChange = event => {
     event.persist();
@@ -46,6 +50,66 @@ class SignIn extends Component {
   handleFormSubmit = event => {
     this.props.loginWithEmailAndPassword({ ...this.state });
   };
+
+
+  login = () => {
+    FirebaseAuthService.signInWithPopup("facebook")
+    .then(({ user }) => {
+      // this.setState({ user })
+      console.log(user)
+      let registerDto = {};
+      registerDto.email = user.email;
+      registerDto.username = user.email;
+      registerDto.displayName = "user";
+      registerDto.gender = "none";
+      registerDto.password ="client1234";
+
+      console.log(registerDto.email);
+      console.log(registerDto.displayName);
+      
+    
+      // var userEmail = user.email;
+      // var userPassword = "client123456";
+      // console.log(userEmail);
+      // FirebaseAuthService.signUpWithEmailAndPassword(userEmail,userPassword);
+      // firebaseLoginEmailPassword(userEmail,userPassword);
+      if(user != null)
+      {
+        //checkmail
+        
+        checkEmail(registerDto).then((result) => {
+          if (result && result.data && result.data != '') {
+
+            this.props.loginWithEmailAndPassword(registerDto);
+           
+          }
+          else{
+            console.log("email checked");
+            signUpAccountFb(registerDto);
+            this.props.loginWithEmailAndPassword(registerDto);
+           
+          }
+        })
+        // setUserData(user);
+        // history.push({
+        //   pathname: ConstantList.ROOT_PATH+"webinar"
+        // });
+      }
+
+
+    })
+  }
+  // login = () => {
+  //   FirebaseAuthService.signInWithPopup("facebook")
+  //   .then((user) => {
+  //     setUserData(user);
+  //     window.location.assign(ConstantList.ROOT_PATH+"webinar")
+  //   })
+  //   .catch(error =>{
+
+  //     console.error(error)
+  //   })
+  // }
   render() {
     const { t, i18n } = this.props;
     let { email, password } = this.state;
@@ -142,6 +206,9 @@ class SignIn extends Component {
                       {t("forgot_password")}
                     </Button> */}
                   </ValidatorForm>
+                       <Button onClick={this.login} style={{backgroundColor:"violet"}}>
+                        login with facebook
+                       </Button>
                 </div>
               </Grid>
             </Grid>

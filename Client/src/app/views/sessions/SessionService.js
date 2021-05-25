@@ -7,6 +7,12 @@ export const signUpAccount = item => {
   return axios.post(url, item);
 };
 
+export const signUpAccountFb = item => {
+  var url = API_PATH + "registerfb";
+  return axios.post(url, item);
+};
+
+
 export const checkuserName = item => {
   var url = API_PATH + "checkUsername";
   return axios.post(url, item);

@@ -1044,8 +1044,7 @@
       "updateFail": "Có lỗi xảy ra khi chỉnh sửa thông tin bình luận",
       "updateSuccess": "Cập nhật thành công thông tin bình luận",
       "deleteSuccess": "Xoá thành công bình luận"
-    }
-  },
+    },
   "webinarCategory": {
     "category":"Danh mục",
     "webinar": "Hội thảo"

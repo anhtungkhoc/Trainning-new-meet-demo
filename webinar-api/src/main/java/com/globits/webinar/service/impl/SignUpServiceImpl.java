@@ -94,6 +94,37 @@ public class SignUpServiceImpl implements SignUpService {
 		}
 		return new UserDto(user);
 	}
+	@Override
+	public UserDto createUserFb(SignUpDto dto) {
+		// TODO Auto-generated method stub
+		User user = null;
+		Set<Role> roles = null;
+		if (dto != null) {
+			// 1. Tạo tài khoản
+			user = new User();
+			user.setEmail(dto.getEmail());
+			user.setUsername(dto.getUsername());
+			user.setPassword(SecurityUtils.getHashPassword(dto.getPassword()));
+
+			Person person = new Person();
+			person.setDisplayName(dto.getDisplayName());
+			person.setGender(dto.getGender());
+			user.setPerson(person);
+			person.setUser(user);
+			user.setActive(true);
+
+			Role role = roleRepository.findByName(WebinarConst.ROLE_ATTENDEE);
+			if (role != null) {
+				roles = new HashSet<>();
+				roles.add(role);
+				user.setRoles(roles);
+			}
+			user = userRepository.save(user);
+			personService.save(person);
+
+		}
+		return new UserDto(user);
+	}
 
 	@Override
 	public boolean checkEmail(SignUpDto dto) {
@@ -107,6 +138,8 @@ public class SignUpServiceImpl implements SignUpService {
 		}
 		return false;
 	}
+	
+	
 
 	@Override
 	public boolean checkUsername(SignUpDto dto) {
