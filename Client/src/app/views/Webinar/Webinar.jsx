@@ -148,16 +148,16 @@ class Webinar extends Component {
 
   handleEditItem = item => {
     let { t } = this.props
-    checkExits().then((result) => {
-      if (result.data) {
+    // checkExits().then((result) => {
+    //   if (result.data) {
         this.setState({
           item: item,
           shouldOpenEditorDialog: true
         });
-      } else {
-        toast.warning(t("webinar.userZoom"));
-      }
-    })
+    //   } else {
+    //     toast.warning(t("webinar.userZoom"));
+    //   }
+    // })
   };
 
   handleDelete = id => {
